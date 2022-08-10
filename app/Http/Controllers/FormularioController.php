@@ -116,7 +116,7 @@ class FormularioController extends Controller
             ->select(
                 'formularios.nomeOS',
                 'formularios.nivel',
-                'formularios.dataHoraSolicitacao',
+                'formularios.datahorasolicitacao',
                 'formularios.realizada',
                 'formularios.descricao',
                 'formularios.local',
