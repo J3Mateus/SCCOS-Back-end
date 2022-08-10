@@ -20,9 +20,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
+/*
 Route::group(
     ['middleware'=>['auth:sanctum']],function(){
+
+);
+*/
 Route::get('/buscar/formulario/servico',[FormularioController::class,'formForServico']);
 Route::get('/buscar/formulario/servico/{id}',[FormularioController::class,'formForServicoOfId']);
 
@@ -61,8 +64,7 @@ Route::delete('/deletar/os/{id}',[OrdemDeServicoController::class,'destroy']);
 
 Route::post('/logout',[AuthController::class,'logout']);
 }
-);
-
+    
 Route::post('/registro', [AuthController::class, 'register']);
 Route::post('/login',[AuthController::class,'login']);
 
