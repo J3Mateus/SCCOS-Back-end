@@ -22,7 +22,7 @@ class CreateFormulariosTable extends Migration
             $table->Boolean('realizada')->default(false);
             $table->String('descricao');
             $table->String('local');
-            $table->String('caminhoAnexo')->nullable(true);
+            $table->String('caminhoanexo')->nullable(true);
             $table->timestamps();
         });
     }
