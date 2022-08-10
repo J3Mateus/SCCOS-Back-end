@@ -60,7 +60,7 @@ class FormularioController extends Controller
     {
         $formulario = DB::table('formularios')
             ->where('realizada', '=', 1)
-            ->orderByRaw('dataHoraSolicitacao DESC')
+            ->orderByRaw('datahorasolicitacao DESC')
             ->get();
 
         if ($formulario){
