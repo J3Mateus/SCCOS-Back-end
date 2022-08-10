@@ -22,23 +22,31 @@ class ServidorController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        return Servidor::create($request->all());
+        if (Servidor::create($request->all())){
+            return response()->json(['msg'=>'Servidor criado com sucesso'],201) ;
+        }else {
+            return response()->json(['msg'=>'Erro durante a inserção de dados'],500) ;
+        }
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
-        //
-        return Servidor::find($id);
+        $servidor= Servidor::find($id);
+        if ( $servidor){
+            return  $servidor;
+        }else {
+            return response()->json(['msg'=>'Servidor não encontrado'],404) ;
+        }
     }
 
     /**
@@ -46,26 +54,31 @@ class ServidorController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
-        //
-        $servidor = Servidor::findOrfail($id);
-        $servidor->update($request->all());
-
-        return $servidor;
+        $servidor = Servidor::find($id);
+        if ($servidor){
+            $servidor->update($request->all());
+            return $servidor;
+        }else {
+            return response()->json(['msg'=>'Servidor não encontrado'],404) ;
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
-        return Servidor::destroy($id);
+        if (Servidor::destroy($id)){
+            response()->json(['msg'=>'Deletado com sucesso'],202);
+        }else {
+            return response()->json(['msg'=>'Não foi possivel deletar'],500);
+        }
     }
 }

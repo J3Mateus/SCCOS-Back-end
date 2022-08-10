@@ -15,8 +15,10 @@ class CreateOrdemDeServicosTable extends Migration
     {
         Schema::create('ordem_de_servicos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('idServico');
-            $table->unsignedBigInteger('idFormulario');
+
+            $table->integer('idServidor');
+            $table->integer('idServico');
+            $table->integer('idFormulario');
             $table->timestamps();
         });
     }

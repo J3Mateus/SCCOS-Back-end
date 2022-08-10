@@ -9,5 +9,5 @@ class OrdemDeServico extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['idServico','idFormulario'];
+    protected $fillable = ['idServico','idFormulario','idServidor'];
 }

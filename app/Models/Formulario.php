@@ -9,7 +9,7 @@ class Formulario extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['idServico','nomeOS','descricao','local'];
+    protected $fillable = ['idServico','nomeOS','descricao','local','nivel'];
 
 
 }
