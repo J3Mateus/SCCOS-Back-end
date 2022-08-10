@@ -18,7 +18,7 @@ class CreateFormulariosTable extends Migration
             $table->unsignedBigInteger('idServico');
             $table->String('nomeOS');
             $table->integer('nivel')->default(5);
-            $table->dateTime('dataHoraSolicitacao')->default(now());
+            $table->dateTime('datahorasolicitacao')->default(now());
             $table->Boolean('realizada')->default(false);
             $table->String('descricao');
             $table->String('local');
